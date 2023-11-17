@@ -1,0 +1,5 @@
+{
+{titulo: 'Nota 1', contenido: 'prueba de nota', id: 1}
+{titulo: 'Nota 1', contenido: 'prueba de nota', id: 1}
+{titulo: 'Nota 1', contenido: 'prueba de nota', id: 1}
+}
