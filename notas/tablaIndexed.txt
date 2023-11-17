@@ -1,5 +1,13 @@
 {
-{titulo: 'Nota 1', contenido: 'prueba de nota', id: 1}
-{titulo: 'Nota 1', contenido: 'prueba de nota', id: 1}
-{titulo: 'Nota 1', contenido: 'prueba de nota', id: 1}
+{titulo: 'Nota 1', contenido: 'prueba de nota', id: 1, id2:1700249742161}
+{titulo: 'Nota 1', contenido: 'prueba de nota', id: 1, id2: 1700249741777}
+{titulo: 'Nota 1', contenido: 'prueba de nota', id: 1, id2: 1700249740387}
+}
+
+
+
+{
+{id: 1, titulo: 'Nota 1', contenido: 'prueba de nota 1', id2:1700249742161, idUser: 1}
+{id: 2, titulo: 'Nota 2', contenido: 'prueba de nota 2', id2:1700249741777, idUser: 1}
+{id: 3, titulo: 'Nota 3', contenido: 'prueba de nota 3', id2:1700249740387, idUser: 1}
 }

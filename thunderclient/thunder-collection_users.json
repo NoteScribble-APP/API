@@ -1,0 +1,78 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "users",
+    "dateExported": "2023-11-17T23:03:19.983Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "67900e66-b900-46b9-a9d2-97f490d3321c",
+            "colId": "0f30621f-eee6-415f-822f-beab73dfffc4",
+            "containerId": "",
+            "name": "register",
+            "url": "http://127.0.0.1:3000/api/users/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-11-16T23:40:49.839Z",
+            "modified": "2023-11-16T23:41:39.950Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "holamundo"
+                    },
+                    {
+                        "name": "email",
+                        "value": "correo@correo.com"
+                    },
+                    {
+                        "name": "password",
+                        "value": "correo12 "
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "97657df5-2211-4744-91de-1f82ac224129",
+            "colId": "0f30621f-eee6-415f-822f-beab73dfffc4",
+            "containerId": "",
+            "name": "Login",
+            "url": "http://127.0.0.1:3000/api/users/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-11-17T00:46:18.950Z",
+            "modified": "2023-11-17T21:03:34.236Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "holamundo",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "email",
+                        "value": "correo@correo.com"
+                    },
+                    {
+                        "name": "password",
+                        "value": "correo12 "
+                    },
+                    {
+                        "name": "notas",
+                        "value": "[ { \"titulo\": \"Título de la nota 1\", \"contenido\": \"Contenido de la nota 1\", \"id2\": 123456789 }, { \"titulo\": \"Título de la nota 2\", \"contenido\": \"Contenido de la nota 2\", \"id2\": 987654321 } ]"
+                    }
+                ]
+            },
+            "tests": []
+        }
+    ]
+}
