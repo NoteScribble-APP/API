@@ -1,5 +1,6 @@
 const Users = require('../models/usersModel');
 const Notes = require('../models/notesModel');
+const Events = require('../models/calendarModel');
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt-nodejs');
 
@@ -58,38 +59,52 @@ const registerUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
     try {
+        console.log(req.body.eventos)
+        console.log(req.body.email)
+        console.log(req.body.password)
+        
         const { email, password } = req.body;
 
         const user = await Users.findOne({ email });
         if (!user) {
             return res.status(400).json({ message: 'Invalid email or password' });
         }
-        console.log(req.body)
         const isPasswordValid = bcrypt.compareSync(password, user.password);
         if (!isPasswordValid) {
             return res.status(400).json({ message: 'Invalid email or password' });
         }
 
+        // notas
         const notasUsuario = await Notes.find({ idUser: user.id });
-
         const nuevasNotas = (req.body.notas || []).filter(nuevaNota => {
             return !notasUsuario.some(dbNota => dbNota.id2 === nuevaNota.id2);
         });
-
         nuevasNotas.forEach(nuevaNota => {
             nuevaNota.idUser = user.id;
         });
-
         if (nuevasNotas.length > 0) {
             await Notes.insertMany(nuevasNotas);
         }
-
         const notasActualizadas = await Notes.find({ idUser: user.id });
-
+        // notas
+        // eventos
+        const eventosUsuario = await Events.find({ idUser: user.id });
+        const eventosNuevos = (req.body.eventos || []).filter(nuevoEvento => {
+            return !eventosUsuario.some(dbNota => dbNota.id2 === nuevoEvento.id2);
+        });
+        eventosNuevos.forEach(nuevoEvento => {
+            nuevoEvento.idUser = user.id;
+        });
+        if (eventosNuevos.length > 0) {
+            await Events.insertMany(eventosNuevos);
+        }
+        const eventosActualizados = await Events.find({ idUser: user.id });
+        // eventos
         return res.status(200).json({
             message: 'Login successful',
             user: { ...user.toObject() },
-            notas: notasActualizadas
+            notas: notasActualizadas,
+            eventos: eventosActualizados
         });
     } catch (error) {
         console.error('Error al procesar la solicitud:', error);
