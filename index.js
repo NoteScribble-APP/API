@@ -6,11 +6,12 @@ const morgan = require('morgan');
 const connectDB = require('./connection/connection');
 const { Router } = require('express');
 const router = require('./routes/router');
-
+const cors = require('cors')
 
 
 connectDB();
 app.use(morgan('dev'));
+app.use(cors)
 app.use(express.json());
 
 
